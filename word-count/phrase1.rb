@@ -5,14 +5,14 @@ class Phrase
   end
 
   def word_count
-    hash = Hash.new(0)
-    split_phrase.each do |word|
-      hash[word] += 1
+    histogram = Hash.new(0)
+    words.each do |word|
+      histogram[word] += 1
     end
-    return hash
+    return histogram
   end
 
-  def split_phrase
+  def words
     @phrase.scan(/\w+/)
   end
 
