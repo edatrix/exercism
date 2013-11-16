@@ -5,18 +5,18 @@ class Year
   end
 
   def leap?
-    !divisible_by_100? && divisible_by_4? || divisible_by_400?
+    !century? && vanilla? || exceptional_century?
   end
 
-  def divisible_by_4?
+  def vanilla?
     @year %4 == 0
   end
 
-  def divisible_by_100?
+  def century?
     @year %100 == 0
   end
 
-  def divisible_by_400?
+  def exceptional_century?
     @year %400 == 0
   end
 
