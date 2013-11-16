@@ -5,11 +5,19 @@ class Year
   end
 
   def leap?
-    if @year %4 == 0 && @year %100 != 0  || @year %4 == 0 && @year %400 == 0
-      true
-    else
-      false
-    end
+    !divisible_by_100? && divisible_by_4? || divisible_by_400?
+  end
+
+  def divisible_by_4?
+    @year %4 == 0
+  end
+
+  def divisible_by_100?
+    @year %100 == 0
+  end
+
+  def divisible_by_400?
+    @year %400 == 0
   end
 
 end
