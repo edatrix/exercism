@@ -1,31 +1,23 @@
 class School
 
-  def initialize()
-    @students = {}
-  end
+  attr_reader :db
 
-  def db
-    @students
+  def initialize()
+    @db = Hash.new{|hash, key| hash[key] = []}
   end
 
   def add(name, grade)
-    if @students[grade]
-      @students[grade] << name
-    else
-      @students[grade] = [name]
-    end
+    @db[grade].push(name)
   end
 
   def grade(grade)
-    @students[grade] || []
+    @db[grade]
   end
 
   def sort
-    student_list = {}
-    @students.each do |grade, list|
-      student_list[grade] = list.sort
+    @db.sort.each_with_object({}) do |(grade, names), roster|
+      roster[grade] = names.sort
     end
-    Hash[student_list.sort]
   end
-
 end
+
