@@ -10,17 +10,17 @@ class HammingTest < MiniTest::Test
   end
 
   def test_no_difference_between_identical_strands
-    skip
+    # skip
     assert_equal 0, Hamming.compute('GGACTGA','GGACTGA')
   end
 
   def test_complete_hamming_distance_in_small_strand
-    skip
+    # skip
     assert_equal 3, Hamming.compute('ACT', 'GGA')
   end
 
   def test_hamming_distance_in_off_by_one_strand
-    skip
+    # skip
     assert_equal 9, Hamming.compute('GGACGGATTCTG', 'AGGACGGATTCT')
   end
 
