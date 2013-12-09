@@ -1,17 +1,17 @@
 class Hamming
 
-  def self.compute(strand_one, strand_two)
-    strand_one = strand_one.split('')
-    strand_two = strand_two.split('')
+  def self.compute(strand1, strand2)
+    strand1 = strand1.split('')
+    strand2 = strand2.split('')
 
-    strand_one.zip(strand_two).count do |string_a, string_b|
-      self.substitution?(string_a, string_b)
+    strand1.zip(strand2).count do |string1, string2|
+      self.substitution?(string1, string2)
     end
   end
 
-  def self.substitution?(string_a, string_b)
-    unless string_a == nil || string_b == nil
-      string_a != string_b
+  def self.substitution?(string1, string2)
+    if string1 && string2
+      string1 != string2
     end
   end
 
