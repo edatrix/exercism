@@ -1,5 +1,3 @@
-require 'pry'
-
 class Phrase
 
   def initialize(phrase)
