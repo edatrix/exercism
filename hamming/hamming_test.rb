@@ -25,22 +25,22 @@ class HammingTest < MiniTest::Test
   end
 
   def test_small_hamming_distance_in_middle_somewhere
-    skip
+    # skip
     assert_equal 1, Hamming.compute('GGACG', 'GGTCG')
   end
 
   def test_larger_distance
-    skip
+    # skip
     assert_equal 2, Hamming.compute('ACCAGGG', 'ACTATGG')
   end
 
   def test_ignores_extra_length_on_other_strand_when_longer
-    skip
+    # skip
     assert_equal 3, Hamming.compute('AAACTAGGGG', 'AGGCTAGCGGTAGGAC')
   end
 
   def test_ignores_extra_length_on_original_strand_when_longer
-    skip
+    # skip
     assert_equal 5, Hamming.compute('GACTACGGACAGGGTAGGGAAT', 'GACATCGCACACC')
   end
 end
