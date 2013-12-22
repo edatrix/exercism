@@ -1,11 +1,10 @@
 class Anagram
 
   def initialize(input)
-    @input = input.split("")
   end
 
-  def match(possible_matches)
-    @input
+  def match(candidates)
+    []
   end
 
 end
