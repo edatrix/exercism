@@ -12,12 +12,12 @@ class Anagram
     end
   end
 
-  def letters(word)
-    word.downcase.chars.sort.join
-  end
-
   def match?(word)
     letters(input) == letters(word) && input.downcase != word.downcase
+  end
+
+  def alphagram(word)
+    word.downcase.chars.sort.join
   end
 
 end
