@@ -1,5 +1,4 @@
 class Grains
-
   def initialize
     @grains = 0
   end
@@ -9,9 +8,6 @@ class Grains
   end
 
   def total
-    [0..64].inject(0) do |sum, number|
-      sum + square(number)
-    end
+    (0..64).map { |number| square(number) }.reduce(0, :+).to_i
   end
-
 end
