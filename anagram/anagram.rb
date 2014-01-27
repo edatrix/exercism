@@ -13,7 +13,7 @@ class Anagram
   end
 
   def match?(word)
-    letters(input) == letters(word) && input.downcase != word.downcase
+    alphagram(input) == alphagram(word) && input.downcase != word.downcase
   end
 
   def alphagram(word)
