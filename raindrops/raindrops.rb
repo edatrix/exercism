@@ -1,54 +1,38 @@
 class Raindrops
 
   def convert(number)
-    @number = number
 
-    if pling_plang_plong
-      "PlingPlangPlong"
-    elsif pling_plang
-      "PlingPlang"
-    elsif pling_plong
-      "PlingPlong"
-    elsif plang_plong
-      "PlangPlong"
-    elsif pling
-      "Pling"
-    elsif plang
-      "Plang"
-    elsif plong
-      "Plong"
-    else
-      number.to_s
+    s = ""
+    if pling?(number)
+      s << "Pling"
     end
 
+    if plang?(number)
+      s << "Plang"
+    end
+
+    if plong?(number)
+      s << "Plong"
+    end
+
+    if s == ""
+      s << number.to_s
+    end
+
+    s
+
   end
 
-  def pling_plang_plong
-    pling && plang && plong
+  def pling?(number)
+    number % 3 == 0
   end
 
-  def pling_plang
-    pling && plang
+  def plang?(number)
+    number % 5 == 0
   end
 
-  def pling_plong
-    pling && plong
-  end
-
-  def plang_plong
-    plang && plong
-  end
-
-  def pling
-    @number % 3 == 0
-  end
-
-  def plang
-    @number % 5 == 0
-  end
-
-  def plong
-    @number % 7 == 0
+  def plong?(number)
+    number % 7 == 0
   end
 
 end
