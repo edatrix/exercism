@@ -3,16 +3,11 @@ class Raindrops
   def convert(number)
 
     s = ""
-    if pling?(number)
-      s << "Pling"
-    end
-
-    if plang?(number)
-      s << "Plang"
-    end
-
-    if plong?(number)
-      s << "Plong"
+    ["pling", "plang", "plong"].each do |drop|
+      message = drop + "?"
+      if send message, number
+        s << drop.capitalize
+      end
     end
 
     if s == ""
