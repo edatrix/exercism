@@ -1,0 +1,54 @@
+<html>
+  <head>
+  <script src="jquery-2.0.3.js"></script>
+  <script src="bob.js"></script>
+  </head>
+  <body>
+    <h1>bob bob bob</h1>
+    <input type="text" name ="chat" id="bob-input"></input>
+    <button id="bob-button-input">say something</button>
+    <div id="bob-responses">
+      here is where bob would say something.
+    </div>
+    <script>
+
+        //find the button
+      var bobInputButton = $("#bob-button-input");
+      console.log(bobInputButton);
+
+        // listen for when user clicks the button
+      bobInputButton.click(function(eventObject) {
+        console.log("button is clicked");
+        console.log(eventObject);
+        // Prevent the default operation of reloading the page
+        eventObject.preventDefault();
+
+        //find the input text field of the message we are going to send to bob
+        var inputField = $("#bob-input");
+        console.log(inputField);
+
+        var whatIAmSayingToBob = inputField.val();
+        console.log(whatIAmSayingToBob);
+
+        var teenager = new Bob();
+        var result = teenager.hey(whatIAmSayingToBob);
+
+        // script tag bob
+        // Create a new instance of Bob
+        // Send our Bob instance our input
+        // Store the results returned from Bob
+
+        console.log(result);
+
+        // Find the location where we want to display the results
+        var outputField = $("#bob-responses");
+        console.log(outputField);
+        // Append our results to the destination location
+        var htmlResult = "<div>" + result + "</div>"
+        outputField.append(htmlResult);
+
+      });
+
+    </script>
+  </body>
+</html>
