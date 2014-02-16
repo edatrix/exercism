@@ -1,11 +1,11 @@
 class Grains
 
-  def square(square_number)
-    2 ** (square_number - 1)
+  def square(placement)
+    2 ** (placement - 1)
   end
 
   def total
-    (0..64).map { |number| square(number) }.reduce(0, :+).to_i
+    (0..64).reduce { |sum, number|  sum + square(number)}
   end
 
 end
