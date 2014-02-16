@@ -1,7 +1,10 @@
+gem 'minitest'
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'dna'
 
-class DNATest < MiniTest::Unit::TestCase
+class DNATest < MiniTest::Test
+
   def test_empty_dna_string_has_no_adenosine
     assert_equal 0, DNA.new('').count('A')
   end
