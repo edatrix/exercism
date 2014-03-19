@@ -1,21 +1,34 @@
 class DNA
 
-  def initialize(dna)
-    @dna = dna
+  attr_reader :sequence
+
+  def initialize(nucleotides)
+    @sequence = nucleotides.chars
+    raise ArgumentError unless sequence.all? {|elem| valid? elem}
   end
 
   def count(nucleotide)
-    if @dna.include?(nucleotide)
-      nucleotide.count(nucleotide)
+    if valid?(nucleotide)
+      sequence.count(nucleotide)
     else
-      0
+      raise ArgumentError
     end
   end
 
-  def nucleotide_counts
+  def valid?(nucleotide)
+    valid_nucleotides.include? nucleotide
   end
 
-  def possible_nucleotides
+  def nucleotide_counts
+    {
+      "A" => count("A"),
+      "T" => count("T"),
+      "G" => count("G"),
+      "C" => count("C")
+    }
+  end
+
+  def valid_nucleotides
     ['A', 'C', 'G', 'T']
   end
 
