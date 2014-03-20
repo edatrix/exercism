@@ -8,11 +8,8 @@ class DNA
   end
 
   def count(nucleotide)
-    if valid?(nucleotide)
-      sequence.count(nucleotide)
-    else
-      raise ArgumentError
-    end
+    raise ArgumentError unless valid?(nucleotide)
+    sequence.count(nucleotide)
   end
 
   def valid?(nucleotide)
@@ -20,16 +17,11 @@ class DNA
   end
 
   def nucleotide_counts
-    {
-      "A" => count("A"),
-      "T" => count("T"),
-      "G" => count("G"),
-      "C" => count("C")
-    }
+    valid_nucleotides.each_with_object({}) { |type, hash| hash[type] = count(type)}
   end
 
   def valid_nucleotides
-    ['A', 'C', 'G', 'T']
+    ['A', 'T', 'C', 'G']
   end
 
 end
