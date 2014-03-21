@@ -17,7 +17,7 @@ class DNA
   end
 
   def nucleotide_counts
-    valid_nucleotides.each_with_object({}) { |type, hash| hash[type] = count(type)}
+    valid_nucleotides.each_with_object({}) { |type, counts| counts[type] = count(type)}
   end
 
   def valid_nucleotides
