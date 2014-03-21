@@ -4,7 +4,7 @@ class DNA
 
   def initialize(nucleotides)
     @sequence = nucleotides.chars
-    raise ArgumentError unless sequence.all? {|elem| valid? elem}
+    raise ArgumentError if sequence.any? {|elem| !valid? elem}
   end
 
   def count(nucleotide)
@@ -21,7 +21,7 @@ class DNA
   end
 
   def valid_nucleotides
-    ['A', 'T', 'C', 'G']
+    @valid_nucleotides ||= ['A', 'T', 'C', 'G']
   end
 
 end
