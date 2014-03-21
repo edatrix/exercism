@@ -1,13 +1,13 @@
 class ETL
 
-  def self.transform(old)
-    transformed = {}
-    old.each do |point, letter|
+  def self.transform(old_system)
+    new_system = {}
+    old_system.each do |point, letter|
       letter.each do |l|
-        transformed[l.downcase] = point
+        new_system[l.downcase] = point
       end
     end
-    transformed
+    new_system
   end
 
 end
