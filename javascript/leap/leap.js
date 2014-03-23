@@ -7,5 +7,17 @@ var isLeapYear = function(year) {
     return false;
   };
 };
+
+var isAnyOldYear = function(year) {
+
+}
+
+var isTurnOfTwentiethCentury = function(year) {
+
+}
+
+var isTurnOfTwentyFirstCentury = function(year) {
+  
+}
   
 module.exports = isLeapYear;
