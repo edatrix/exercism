@@ -1,15 +1,9 @@
 var isLeapYear = function(year) {
-  if (year === 1900) {
-    return false;
-  } else if (year % 2 === 0) {
-    return true;
-  } else {
-    return false;
-  };
+  year %100 == 0 && year %4 == 0 || year %400 == 0
 };
 
 var isAnyOldYear = function(year) {
-
+  year.isOdd
 }
 
 var isTurnOfTwentiethCentury = function(year) {
@@ -17,7 +11,7 @@ var isTurnOfTwentiethCentury = function(year) {
 }
 
 var isTurnOfTwentyFirstCentury = function(year) {
-  
+
 }
   
 module.exports = isLeapYear;
