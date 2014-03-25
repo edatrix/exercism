@@ -1,17 +1,26 @@
 var isLeapYear = function(year) {
-  year %100 == 0 && year %4 == 0 || year %400 == 0
+
+  var isKnownLeapYear = function(year) {
+    !isCentury(year) && isVanilla(year) || isExceptionalCentury(year) 
+  };
+
+  var isVanilla = function(year) {
+    if (year %4 == 0) {
+      return true;
+    }
+  };
+
+  var isCentury = function(year) {
+    if (year %100 == 0) {
+      return true;
+    }
+  };
+
+  var isExceptionalCentury = function(year) {
+    if (year %400 == 0) {
+      return true;
+    }
+  };
 };
-
-var isAnyOldYear = function(year) {
-  year.isOdd
-}
-
-var isTurnOfTwentiethCentury = function(year) {
-
-}
-
-var isTurnOfTwentyFirstCentury = function(year) {
-
-}
   
 module.exports = isLeapYear;
