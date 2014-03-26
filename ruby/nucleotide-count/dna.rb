@@ -6,7 +6,7 @@ class DNA
 
   def initialize(nucleotides)
     @sequence = nucleotides.chars
-    raise ArgumentError if sequence.any? {|elem| invalid? elem}
+    raise ArgumentError if invalid_sequence
   end
 
   def count(nucleotide)
@@ -20,6 +20,12 @@ class DNA
 
   def nucleotide_counts
     VALID_NUCLEOTIDES.each_with_object({}) { |nucleotide, counts| counts[nucleotide] = count(nucleotide)}
+  end
+
+  private
+
+  def invalid_sequence
+    sequence.any? {|elem| invalid? elem}
   end
 
 end
