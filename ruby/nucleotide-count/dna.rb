@@ -1,5 +1,7 @@
 class DNA
 
+  VALID_NUCLEOTIDES = ['A', 'T', 'C', 'G']
+
   attr_reader :sequence
 
   def initialize(nucleotides)
@@ -13,15 +15,11 @@ class DNA
   end
 
   def invalid?(nucleotide)
-    !valid_nucleotides.include? nucleotide
+    !VALID_NUCLEOTIDES.include? nucleotide
   end
 
   def nucleotide_counts
-    valid_nucleotides.each_with_object({}) { |nucleotide, counts| counts[nucleotide] = count(nucleotide)}
-  end
-
-  def valid_nucleotides
-    @valid_nucleotides ||= ['A', 'T', 'C', 'G']
+    VALID_NUCLEOTIDES.each_with_object({}) { |nucleotide, counts| counts[nucleotide] = count(nucleotide)}
   end
 
 end
