@@ -1,7 +1,7 @@
 class Scrabble
 
   def initialize(word)
-    @word = word.to_s.delete(" \t\n").upcase
+    @word = parse(word)
   end
 
   def score
@@ -24,6 +24,12 @@ class Scrabble
       "U"=>1, "V"=>4, "W"=>4, "X"=>8,
       "Y"=>4, "Z"=>10, "" => 0
     }
+  end
+
+  private
+
+  def parse(word)
+    word.to_s.strip.upcase
   end
 
 end
