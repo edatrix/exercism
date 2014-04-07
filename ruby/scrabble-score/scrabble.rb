@@ -5,10 +5,9 @@ class Scrabble
   end
 
   def score
-    letters = @word.chars.map do |letter|
-      letter_values[letter]
+    @word.chars.inject(0) do |sum, letter|
+      sum += letter_values[letter]
     end
-    letters.inject(0) {|sum, score| sum + score}
   end
 
   def self.score(word)
