@@ -3,7 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require_relative 'garden'
 
-class GardenTest < MiniTest::Unit::TestCase
+class GardenTest < MiniTest::Test
 
   def test_alices_garden
     garden = Garden.new("RC\nGG")
@@ -11,13 +11,13 @@ class GardenTest < MiniTest::Unit::TestCase
   end
 
   def test_different_garden_for_alice
-    skip
+    # skip
     garden = Garden.new("VC\nRC")
     assert_equal [:violets, :clover, :radishes, :clover], garden.alice
   end
 
   def test_bobs_garden
-    skip
+    # skip
     garden = Garden.new("VVCG\nVVRC")
     assert_equal [:clover, :grass, :radishes, :clover], garden.bob
   end
@@ -31,7 +31,7 @@ class GardenTest < MiniTest::Unit::TestCase
 
 end
 
-class TestFullGarden < MiniTest::Unit::TestCase
+class TestFullGarden < MiniTest::Test
   def setup
     diagram = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
     @garden = Garden.new(diagram)
@@ -102,7 +102,7 @@ class TestFullGarden < MiniTest::Unit::TestCase
   end
 end
 
-class DisorderedTest < MiniTest::Unit::TestCase
+class DisorderedTest < MiniTest::Test
 
   def setup
     diagram = "VCRRGVRG\nRVGCCGCV"
