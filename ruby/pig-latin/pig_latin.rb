@@ -1,0 +1,2 @@
+class PigLatin
+end
