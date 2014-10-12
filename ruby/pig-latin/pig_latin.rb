@@ -2,21 +2,29 @@ class PigLatin
 
   def self.translate(word)
     if word.start_with?("a", "e", "i", "o", "u")
-      word.to_s + "ay"
+      self.vowel_rearrange(word)
     elsif word.include?(" ")
       self.split_phrase(word)
     elsif word.start_with?("thr")
       "ushthray"
     elsif word.start_with?("yt", "xr")
-      word.to_s + "ay"
+      self.vowel_rearrange(word)
     elsif word.start_with?("ch", "qu", "th")
       self.rearrange_two(word)
     elsif word.start_with?("squ", "sch")
       self.rearrange_three(word)
     else
-      first_letter = word.chars.to_a[0]
-      word.delete(first_letter) + first_letter + "ay"
+      self.basic_rearrange(word)
     end
+  end
+
+  def self.vowel_rearrange(word)
+    word.to_s + "ay"
+  end
+
+  def self.basic_rearrange(word)
+    first_letter = word.chars.to_a[0]
+    word.delete(first_letter) + first_letter + "ay"
   end
 
   def self.rearrange_two(word)
