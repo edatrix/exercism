@@ -20,62 +20,62 @@ class PigLatinTest < MiniTest::Test
   end
 
   def test_word_beginning_with_k
-    skip
+    # skip
     assert_equal "oalakay", PigLatin.translate("koala")
   end
 
   def test_word_beginning_with_ch
-    skip
+    # skip
     assert_equal "airchay", PigLatin.translate("chair")
   end
 
   def test_word_beginning_with_qu
-    skip
+    # skip
     assert_equal "eenquay", PigLatin.translate("queen")
   end
 
   def test_word_with_consonant_preceding_qu
-    skip
+    # skip
     assert_equal "aresquay", PigLatin.translate("square")
   end
 
   def test_word_beginning_with_th
-    skip
+    # skip
     assert_equal "erapythay", PigLatin.translate("therapy")
   end
 
   def test_word_beginning_with_thr
-    skip
+    # skip
     assert_equal "ushthray", PigLatin.translate("thrush")
   end
 
   def test_word_beginning_with_sch
-    skip
+    # skip
     assert_equal "oolschay", PigLatin.translate("school")
   end
 
   def test_translates_phrase
-    skip
+    # skip
     assert_equal "ickquay astfay unray", PigLatin.translate("quick fast run")
   end
 
   def test_word_beginning_with_ye
-    skip
+    # skip
     assert_equal "ellowyay", PigLatin.translate("yellow")
   end
 
   def test_word_beginning_with_yt
-    skip
+    # skip
     assert_equal "yttriaay", PigLatin.translate("yttria")
   end
 
   def test_word_beginning_with_xe
-    skip
+    # skip
     assert_equal "enonxay", PigLatin.translate("xenon")
   end
 
   def test_word_beginning_with_xr
-    skip
+    # skip
     assert_equal "xrayay", PigLatin.translate("xray")
   end
 end
