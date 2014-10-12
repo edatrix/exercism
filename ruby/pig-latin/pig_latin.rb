@@ -1,14 +1,18 @@
 class PigLatin
 
+  def self.initialize(word)
+    @first_letter = word.chars.to_a[0]
+    @second_letter = word.chars.to_a[1]
+    @third_letter = word.chars.to_a[2]
+  end
+
   def self.translate(word)
-    if word.start_with?("a", "e", "i", "o", "u")
+    if word.start_with?("a", "e", "i", "o", "u", "yt", "xr")
       self.vowel_rearrange(word)
     elsif word.include?(" ")
       self.split_phrase(word)
     elsif word.start_with?("thr")
       "ushthray"
-    elsif word.start_with?("yt", "xr")
-      self.vowel_rearrange(word)
     elsif word.start_with?("ch", "qu", "th")
       self.rearrange_two(word)
     elsif word.start_with?("squ", "sch")
@@ -23,21 +27,18 @@ class PigLatin
   end
 
   def self.basic_rearrange(word)
-    first_letter = word.chars.to_a[0]
-    word.delete(first_letter) + first_letter + "ay"
+    self.initialize(word)
+    word.delete(@first_letter.to_s) + @first_letter.to_s + "ay"
   end
 
   def self.rearrange_two(word)
-    first_letter = word.chars.to_a[0]
-    second_letter = word.chars.to_a[1]
-    word.delete(first_letter).delete(second_letter) + first_letter + second_letter + "ay"
+    self.initialize(word)
+    word.delete(@first_letter.to_s).delete(@second_letter.to_s) + @first_letter.to_s + @second_letter.to_s + "ay"
   end
 
   def self.rearrange_three(word)
-    first_letter = word.chars.to_a[0]
-    second_letter = word.chars.to_a[1]
-    third_letter = word.chars.to_a[2]
-    word.delete(first_letter).delete(second_letter).delete(third_letter) + first_letter + second_letter + third_letter + "ay"
+    self.initialize(word)
+    word.delete(@first_letter.to_s).delete(@second_letter.to_s).delete(@third_letter.to_s) + @first_letter.to_s + @second_letter.to_s + @third_letter.to_s + "ay"
   end
 
   def self.split_phrase(phrase)
