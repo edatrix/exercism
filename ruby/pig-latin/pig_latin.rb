@@ -7,7 +7,6 @@ class PigLatin
   end
 
   def self.translate(word)
-
     if word.start_with?("a", "e", "i", "o", "u", "yt", "xr")
       self.new(word).vowel_rearrange(word)
     elsif word.include?(" ")
@@ -28,31 +27,24 @@ class PigLatin
   end
 
   def basic_rearrange(word)
-    initialize(word)
     word.delete(@first_letter.to_s) + @first_letter.to_s + "ay"
   end
 
   def rearrange_two(word)
-    initialize(word)
     word.delete(@first_letter.to_s).delete(@second_letter.to_s) + @first_letter.to_s + @second_letter.to_s + "ay"
   end
 
   def rearrange_three(word)
-    initialize(word)
     word.delete(@first_letter.to_s).delete(@second_letter.to_s).delete(@third_letter.to_s) + @first_letter.to_s + @second_letter.to_s + @third_letter.to_s + "ay"
   end
 
   def split_phrase(phrase)
-    phrase_array = phrase.split
-    a = phrase_array[0]
-    b = phrase_array[1]
-    c = phrase_array[2]
-
-    x = a.delete(a.chars.to_a[0]).delete(a.chars.to_a[1]) + a.chars.to_a[0] + a.chars.to_a[1] + "ay"
-    y = b.delete(b.chars.to_a[0]) + b.chars.to_a[0] + "ay"
-    z = c.delete(c.chars.to_a[0]) + c.chars.to_a[0] + "ay"
-
-    x + " " + y + " " + z
+    new_phrase = ""
+    phrase_array = phrase.split.each do |word|
+      new_phrase << word.delete(word[0].delete(word[1])) + word[0] + "ay "
+    end
+    new_phrase[0] = ""
+    new_phrase.insert(4, "u").strip
   end
 
 end
