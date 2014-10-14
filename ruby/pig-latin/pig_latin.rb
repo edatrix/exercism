@@ -7,18 +7,19 @@ class PigLatin
   end
 
   def self.translate(word)
+    new_word = new(word)
     if word.start_with?("a", "e", "i", "o", "u", "yt", "xr")
-      self.new(word).vowel_rearrange(word)
+      new_word.vowel_rearrange(word)
     elsif word.include?(" ")
-      self.new(word).split_phrase(word)
+      new_word.split_phrase(word)
     elsif word.start_with?("thr")
       "ushthray"
     elsif word.start_with?("ch", "qu", "th")
-      self.new(word).rearrange_two(word)
+      new_word.rearrange_two(word)
     elsif word.start_with?("squ", "sch")
-      self.new(word).rearrange_three(word)
+      new_word.rearrange_three(word)
     else
-      self.new(word).basic_rearrange(word)
+      new_word.basic_rearrange(word)
     end
   end
 
