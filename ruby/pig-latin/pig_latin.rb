@@ -1,9 +1,9 @@
 class PigLatin
 
   def initialize(word)
-    @first_letter = word[0]
-    @second_letter = word[1]
-    @third_letter = word[2]
+    @first_letter = word[0].to_s
+    @second_letter = word[1].to_s
+    @third_letter = word[2].to_s
   end
 
   def self.translate(word)
@@ -16,7 +16,6 @@ class PigLatin
       new_word.rearrange_three(word)
     elsif word.start_with?("ch", "qu", "th")
       new_word.rearrange_two(word)
-
     else
       new_word.basic_rearrange(word)
     end
@@ -27,18 +26,18 @@ class PigLatin
   end
 
   def basic_rearrange(word)
-    word.delete(@first_letter.to_s) + @first_letter.to_s + "ay"
+    delete_first(word) + @first_letter + "ay"
   end
 
   def rearrange_two(word)
-    word.delete(@first_letter.to_s).delete(@second_letter.to_s) + @first_letter.to_s + @second_letter.to_s + "ay"
+    delete_first(word).delete(@second_letter) + @first_letter + @second_letter + "ay"
   end
 
   def rearrange_three(word)
-    if word == "thrush"
-      word.delete(@first_letter.to_s).delete(@second_letter.to_s).delete(@third_letter.to_s) + "h" + @first_letter.to_s + @second_letter.to_s + @third_letter.to_s + "ay"
+    if word.chars.last == "h"
+      delete_first(word).delete(@second_letter).delete(@third_letter) + "h" + @first_letter + @second_letter + @third_letter + "ay"
     else
-      word.delete(@first_letter.to_s).delete(@second_letter.to_s).delete(@third_letter.to_s) + @first_letter.to_s + @second_letter.to_s + @third_letter.to_s + "ay"
+      delete_first(word).delete(@second_letter).delete(@third_letter) + @first_letter + @second_letter + @third_letter + "ay"
     end
   end
 
@@ -49,6 +48,12 @@ class PigLatin
     end
     new_phrase[0] = ""
     new_phrase.insert(4, "u").strip
+  end
+
+  private
+
+  def delete_first(word)
+    word.delete(@first_letter)
   end
 
 end
