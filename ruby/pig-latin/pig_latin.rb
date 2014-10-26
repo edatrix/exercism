@@ -12,12 +12,11 @@ class PigLatin
       new_word.vowel_rearrange(word)
     elsif word.include?(" ")
       new_word.split_phrase(word)
-    elsif word.start_with?("thr")
-      "ushthray"
+    elsif word.start_with?("squ", "sch", "thr")
+      new_word.rearrange_three(word)
     elsif word.start_with?("ch", "qu", "th")
       new_word.rearrange_two(word)
-    elsif word.start_with?("squ", "sch")
-      new_word.rearrange_three(word)
+
     else
       new_word.basic_rearrange(word)
     end
@@ -36,7 +35,11 @@ class PigLatin
   end
 
   def rearrange_three(word)
-    word.delete(@first_letter.to_s).delete(@second_letter.to_s).delete(@third_letter.to_s) + @first_letter.to_s + @second_letter.to_s + @third_letter.to_s + "ay"
+    if word == "thrush"
+      word.delete(@first_letter.to_s).delete(@second_letter.to_s).delete(@third_letter.to_s) + "h" + @first_letter.to_s + @second_letter.to_s + @third_letter.to_s + "ay"
+    else
+      word.delete(@first_letter.to_s).delete(@second_letter.to_s).delete(@third_letter.to_s) + @first_letter.to_s + @second_letter.to_s + @third_letter.to_s + "ay"
+    end
   end
 
   def split_phrase(phrase)
