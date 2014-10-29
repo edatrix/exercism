@@ -42,12 +42,10 @@ class PigLatin
   end
 
   def split_phrase(phrase)
-    new_phrase = ""
-    phrase_array = phrase.split.each do |word|
-      new_phrase << word.delete(word[0].delete(word[1])) + word[0] + "ay "
-    end
-    new_phrase[0] = ""
-    new_phrase.insert(4, "u").strip
+    phrase_array = phrase.split.map { |word| word }
+    translation = phrase_array.map { |x| PigLatin.translate(x) }
+    translated_phrase = translation.each { |word| word }.join(" ")
+    translated_phrase
   end
 
   private
