@@ -11,7 +11,7 @@ class PigLatin
     if word.start_with?("a", "e", "i", "o", "u", "yt", "xr")
       new_word.vowel_rearrange(word)
     elsif word.include?(" ")
-      new_word.split_phrase(word)
+      new_word.translate_phrase(word)
     elsif word.start_with?("squ", "sch", "thr")
       new_word.rearrange_three(word)
     elsif word.start_with?("ch", "qu", "th")
@@ -41,7 +41,7 @@ class PigLatin
     end
   end
 
-  def split_phrase(phrase)
+  def translate_phrase(phrase)
     phrase_array = phrase.split.map { |word| word }
     translation = phrase_array.map { |x| PigLatin.translate(x) }
     translated_phrase = translation.each { |word| word }.join(" ")
